@@ -10,8 +10,10 @@
 #include <vector>
 
 //consts
-const unsigned int MIN_NUM_FEATURES = 300; //minimum number of point fetaures
-
+const unsigned int MIN_NUM_FEATURES = 50; //minimum number of point fetaures 
+					//number of points reduced from 300 to 100
+//const unsigned int patchsize = 400;  // spotsize
+//const double scalefactor = 2;	    // amplitud spectrum
 int main(int argc, char *argv[]) 
 {
     cv::VideoCapture camera; //OpenCV video capture object
@@ -19,6 +21,8 @@ int main(int argc, char *argv[])
 	int cam_id; //camera id . Associated to device number in /dev/videoX
     cv::Ptr<cv::ORB> orb_detector = cv::ORB::create(); //ORB point feature detector
     orb_detector->setMaxFeatures(MIN_NUM_FEATURES);
+//    orb_detector->setPatchSize(patchsize);
+//   orb_detector->setScaleFactor(scalefactor);
     std::vector<cv::KeyPoint> point_set; //set of point features
     cv::Mat descriptor_set; //set of descriptors, for each feature there is an associated descriptor 
 	
@@ -66,7 +70,7 @@ int main(int argc, char *argv[])
         orb_detector->detectAndCompute(image, cv::noArray(), point_set, descriptor_set);
         
         //draw points on the image
-        cv::drawKeypoints( image, point_set, image, 255, cv::DrawMatchesFlags::DEFAULT );      
+        cv::drawKeypoints( image, point_set, image, 110, cv::DrawMatchesFlags::DEFAULT );      
                 
     //********************************************************************
 		
