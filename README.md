@@ -12,9 +12,9 @@ Then 16 surrounding pixels are selected.
 
 Only 4 of the 16 pixels are tested in order to speed up the test. The 1,5,9 and 13 will be tested.
 
-Firstly the pixels 1 and 9 are tested. They should be more britghter(Bp+x) or darker (Bp-x). If They aren't the pixel selected(P) would not be a corner. If one of them fulfill this conditions then the other two pixels are checked. 
+Firstly the pixels 1 and 9 are tested. They should be more britghter(Bp+x) or darker (Bp-x). If They aren't then the pixel selected(P) would not be a corner. If one of them fulfill this conditions then the other two pixels are checked. 
 
-Three condinitions must be accomplished to consider that the pixel (P) is a corner.
+Three condinitions must be accomplished to consider that the pixel (P) is a corner. So, for example the pixeñ 1, 9 and 3 must be brighter or darker.
 
 This algorithm has several weaknesses. Therefore the algorithm "Machine Learning a Corner Detector" is also added for improving the perfomance.
 
